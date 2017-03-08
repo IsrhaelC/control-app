@@ -19,6 +19,7 @@
     <script src="routes.js"></script>
     <script src="controllers/registro-ctrl.js"></script>
     <script src="controllers/login-ctrl.js"></script>
+    <script src="controllers/denuncia-ctrl.js"></script>
     <script src="services/http-request-service.js"></script>
 </head>
 <body>
@@ -26,18 +27,15 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">ControlApp</a>
+        <a class="navbar-brand" ui-sref="home">ControlApp</a>
 
         <div class="collapse navbar-collapse" id="navbarApp">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="home">Inicio</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" ui-sref="denuncia">Realizar Denuncia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="ranking">Ranking de Cidades</a>
+                    <a class="nav-link" ui-sref="ranking">Visualizar Cidades</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" ui-sref="login">Logar</a>

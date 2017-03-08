@@ -1,1 +1,36 @@
-<h1>Denuncia</h1>
+<style>
+    .card {
+        margin-top: 80px;
+        padding: 20px;
+    }
+</style>
+
+<div class="card col-md-6 offset-3">
+    <form action="">
+        <div class="form-group">
+            <label for="endereco">Local do problema</label>
+            <input ng-model="dn.denuncia.end" type="text" id="endereco" class="form-control" aria-describedby="enderecoHelp">
+            <small id="enderecoHelp" class="form-text text-muted">O endereço deve ser no formato: rua exemplo, 100</small>
+        </div>
+        <div class="form-group">
+            <label for="categoria" >Categoria da denúncia</label>
+            <div>
+                <select ng-model="dn.denuncia.cat" class="form-control" id="categoria">
+                    <option>Segurança</option>
+                    <option>Saúde</option>
+                    <option>Educação</option>
+                    <option>Acessibilidade</option>
+                    <option>Desperdício de água</option>
+                    <option>Desperdício de energia</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="desc"></label>
+            <textarea ng-model="dn.denuncia.desc" class="form-control" id="desc" rows="6"></textarea>
+        </div>
+        <div class="text-center">
+        <button class="btn btn-danger text-center" type="submit" ng-click="dn.realizarDenuncia()">Registrar Denúncia</button>
+        </div>
+    </form>
+</div>

@@ -12,7 +12,8 @@
         var denuncia = {
             name: 'denuncia',
             url: '/denuncia',
-            templateUrl: 'templates/denuncia.html'
+            templateUrl: 'templates/denuncia.html',
+            controller: 'DenunciaController as dn'
         };
 
         var login = {

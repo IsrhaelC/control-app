@@ -26,7 +26,8 @@
         var ranking = {
             name: 'ranking',
             url: '/ranking',
-            templateUrl: 'templates/ranking.html'
+            templateUrl: 'templates/ranking.html',
+            controller: 'RankingController as rk'
         };
 
         var registro = {

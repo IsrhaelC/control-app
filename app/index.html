@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <script src="module.js"></script>
     <script src="routes.js"></script>
+    <script src="controllers/registro-ctrl.js"></script>
+    <script src="controllers/login-ctrl.js"></script>
     <script src="services/http-request-service.js"></script>
 </head>
 <body>
@@ -29,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarApp">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="home">Inicio</span></a>
+                    <a class="nav-link" ui-sref="home">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" ui-sref="denuncia">Realizar Denuncia</a>
@@ -51,5 +53,6 @@
     </nav>
 
     <ui-view></ui-view>
+
 </body>
 </html>

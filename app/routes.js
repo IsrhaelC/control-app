@@ -1,7 +1,7 @@
 (function () {
 
     var myApp = angular.module('controlApp');
-    myApp.config(function ($stateProvider, $urlRouterProvider) {
+    myApp.config(function ($stateProvider) {
 
         var home = {
             name: 'home',
@@ -18,7 +18,8 @@
         var login = {
             name: 'login',
             url: '/login',
-            templateUrl: 'templates/login.html'
+            templateUrl: 'templates/login.html',
+            controller: 'LoginController as lg'
         };
 
         var ranking = {
@@ -30,7 +31,8 @@
         var registro = {
             name: 'registro',
             url: '/registro',
-            templateUrl: 'templates/registro.html'
+            templateUrl: 'templates/registro.html',
+            controller: 'RegistroController as rg'
         };
 
         $stateProvider.state(home);

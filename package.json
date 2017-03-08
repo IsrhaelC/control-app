@@ -1,0 +1,11 @@
+{
+  "name": "control-app",
+  "version": "1.0.0",
+  "description": "Sistema de denuncias de acessibilidade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isrhael Christian",
+  "license": "MIT"
+}

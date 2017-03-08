@@ -11,8 +11,16 @@
         dn.denuncia = {};
 
         dn.realizarDenuncia = function () {
-            alert(dn.denuncia.cat)
-        }
+            alert(dn.denuncia.end)
+        };
+
+        var input = document.getElementById('endereco');
+        var options = {
+            componentRestrictions: {country: 'br'},
+            types: ['address']
+        };
+
+        autocomplete = new google.maps.places.Autocomplete(input, options);
 
     };
 

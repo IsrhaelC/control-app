@@ -7,10 +7,17 @@
 
         rg.user = {};
 
+        var input = document.getElementById('cid-user');
+        var options = {
+            types: ['(cities)'],
+            componentRestrictions: {country: 'br'}
+        };
+
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+
         //Método que cadastra um usuário
         rg.registerUser = function () {
-
-            alert(rg.user.estado);
+            alert(rg.user.cidade);
 
             /*
             HTTPRequestService.postUser(rg.user).then(function(result) {

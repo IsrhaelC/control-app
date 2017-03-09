@@ -8,10 +8,13 @@
     var RankingController = function ($scope, $state) {
         var rk = this;
 
+        var denuncias = [{_id: 1, }];
+
         rk.city = "";
 
         var zoomMap;
         var map;
+        var geocoder = new google.maps.Geocoder();
         function initMap(city) {
             var myLatLng = {};
             if(city === 1) {
@@ -31,6 +34,7 @@
                 zoomMap = 12;
             }
 
+
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: zoomMap,
                 center: myLatLng
@@ -44,10 +48,51 @@
                 icon: icone
             });
         }
+        
+        function converteEndereco(endereco, categoria) {
+            geocoder.geocode({'address': endereco}, function (resultado, status) {
+                if(status == google.maps.GeocoderStatus.OK){
+                    var marcador = {
+                        latitude: resultado[0].geometry.location.k,
+                        longitude: resultado[0].geometry.location.D,
+                        titulo: 'Novo Marcador',
+                        imagem: avaliacao
+                    }
+                    
+                }
+            })
+        };
+
+        var marcadores = [];
+
+        var criaMarcador = function (marcador, mapa) {
+            var posicao = new google.maps.LatLng(marcador.latitude, marcador.longitude);
+            var opcoes = {
+                position: posicao,
+                title: marcador.titulo,
+                animation: google.maps.Animation.DROP,
+                icon: 'assets/images/marcadores/' + marcador.imagem,
+                map: mapa
+            }
+            var novoMarcador = new google.maps.Marker(opcoes);
+            marcadores.push(novoMarcador);
+            map.setCenter(novoMarcador.position);
+        };
+
+        function adiciona() {
+            var marcador = {
+                latidute: '',
+                longitude: '',
+                titulo: 'Novo MArcador',
+                imagem: ''
+            }
+            criaMarcador(marcador, map);
+        }
 
         rk.loadMap = function (city) {
             initMap(city);
         };
+
 
     };
 

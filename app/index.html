@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <script src="module.js"></script>
     <script src="routes.js"></script>
+    <script src="controllers/index-ctrl.js"></script>
     <script src="controllers/registro-ctrl.js"></script>
     <script src="controllers/login-ctrl.js"></script>
     <script src="controllers/denuncia-ctrl.js"></script>
@@ -24,7 +25,7 @@
     <script src="controllers/ranking-ctrl.js"></script>
     <script src="services/http-request-service.js"></script>
 </head>
-<body>
+<body ng-controller="IndexController as ic">
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,14 +40,14 @@
                 <li class="nav-item">
                     <a class="nav-link" ui-sref="ranking">Visualizar Cidades</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" ui-sref="login">Logar</a>
+                <li class="nav-item" ng-hide="ic.isLog()">
+                    <a ui-sref="login" class="nav-link">Logar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" ui-sref="registro">Registrar-se</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sair</a>
+                <li class="nav-item" ng-hide="!ic.isLog()">
+                    <a ng-click="ic.logout()" ui-sref="ranking" class="nav-link">Sair</a>
                 </li>
             </ul>
         </div>

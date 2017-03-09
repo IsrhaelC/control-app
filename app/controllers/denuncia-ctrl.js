@@ -5,13 +5,18 @@
 
     var myApp = angular.module('controlApp');
 
-    var DenunciaController = function ($scope, $state) {
+    var DenunciaController = function ($scope, $state, HTTPRequestService) {
         var dn = this;
 
         dn.denuncia = {};
 
         dn.realizarDenuncia = function () {
-            alert(dn.denuncia.end)
+            HTTPRequestService.postDenuncia(dn.denuncia).then(function (result) {
+                $state.go('ranking');
+            }).catch(function (result) {
+               var msg = result.message || 'Erro';
+               alert(msg);
+            });
         };
 
         var input = document.getElementById('endereco');
@@ -24,7 +29,7 @@
 
     };
 
-    DenunciaController.$inject = ['$scope', '$state'];
+    DenunciaController.$inject = ['$scope', '$state', 'HTTPRequestService'];
 
     myApp.controller('DenunciaController', DenunciaController);
 

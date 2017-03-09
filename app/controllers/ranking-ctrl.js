@@ -35,13 +35,14 @@
                 zoom: zoomMap,
                 center: myLatLng
             });
-            /*
+
+            var icone = 'assets/images/marcadores/hospital.png';
             var marker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
-                title: 'Hello World!'
+                title: 'Hello World!',
+                icon: icone
             });
-            */
         }
 
         rk.loadMap = function (city) {

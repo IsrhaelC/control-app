@@ -5,8 +5,8 @@
     }
 </style>
 
-<div class="card col-md-6 offset-3" ng-hide="!dn.isLog()">
-    <h3>Olá {{dn.user.nome}}, você tem algo para denunciar?</h3>
+<div class="card col-md-6 offset-3">
+    <h3>Olá {{dn.user.name}}, você tem algo para denunciar?</h3>
     <form name="denForm">
         <div class="form-group">
             <label for="endereco">Local do problema</label>
@@ -31,12 +31,12 @@
             <textarea ng-required="true" ng-model="dn.denuncia.desc" class="form-control" id="desc" rows="6"></textarea>
         </div>
         <div class="text-center">
-        <button class="btn btn-danger text-center" type="submit" ng-click="dn.realizarDenuncia()" ng-disabled="denForm.$invalid">Registrar Denúncia</button>
+            <button class="btn btn-danger text-center" type="submit" ng-click="dn.realizarDenuncia()" ng-disabled="denForm.$invalid">Registrar Denúncia</button>
         </div>
     </form>
 </div>
-
-<div class="text-center card col-md-4 offset-4" ng-hide="dn.isLog()">
+<!--
+<div class="text-center card col-md-4 offset-4">
     <div class="card-block">
         <h4 class="card-title">Você não está logado</h4>
             <p class="card-text">Para realizar uma denúncia você precisa esta registrado e logado em nosso sistema</p>
@@ -44,3 +44,4 @@
             <a ui-sref="registro" class="card-link">Cadastro</a>
     </div>
 </div>
+-->

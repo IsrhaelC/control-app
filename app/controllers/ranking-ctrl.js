@@ -8,6 +8,13 @@
     var RankingController = function ($scope, $state, HTTPRequestService) {
         var rk = this;
 
+        rk.contSeg = 0;
+        rk.contSau = 0;
+        rk.contAce = 0;
+        rk.contEdu = 0;
+        rk.contEne = 0;
+        rk.contWat = 0;
+
         rk.denuncias = [];
 
         rk.icones = {
@@ -42,6 +49,31 @@
         };
 
         rk.loadDenuncias();
+
+        rk.contDen = function () {
+            for (var i = 0; i < rk.denuncias.length; i++){
+                if (rk.denuncias[i].cat == 0){
+                    rk.contSeg = rk.contSeg + 1;
+                }
+                if (rk.denuncias[i].cat == 1){
+                    rk.contSau++;
+                }
+                if (rk.denuncias[i].cat == 2){
+                    rk.contEdu++;
+                }
+                if (rk.denuncias[i].cat == 3){
+                    rk.contAce++;
+                }
+                if (rk.denuncias[i].cat == 4){
+                    rk.contWat++;
+                }
+                if (rk.denuncias[i].cat == 5){
+                    rk.contEne++;
+                }
+            }
+        };
+
+        rk.contDen();
 
         rk.city = "";
 

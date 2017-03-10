@@ -24,8 +24,8 @@
             HTTPRequestService.postDenuncia(dn.denuncia).then(function (result) {
                 $state.go('ranking');
             }).catch(function (result) {
-               var msg = result.message || 'Erro';
-               alert(msg);
+                var msg = result.message || 'Erro';
+                alert(msg);
             });
         };
 

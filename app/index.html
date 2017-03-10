@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="icon" href="favicon.ico">
     <script src="module.js"></script>
     <script src="routes.js"></script>
     <script src="controllers/index-ctrl.js"></script>
@@ -26,35 +27,35 @@
     <script src="services/http-request-service.js"></script>
 </head>
 <body ng-controller="IndexController as ic">
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <img src="assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        <a class="navbar-brand" ui-sref="home">ControlApp Fortaleza</a>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <img src="assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    <a class="navbar-brand" ui-sref="home">ControlApp Fortaleza</a>
 
-        <div class="collapse navbar-collapse" id="navbarApp">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" ui-sref="denuncia">Realizar Denuncia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" ui-sref="ranking">Visualizar Mapa de Denuncias</a>
-                </li>
-                <li class="nav-item" ng-hide="ic.isLog()">
-                    <a ui-sref="login" class="nav-link">Logar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" ui-sref="registro" ng-hide="ic.isLog()">Registrar-se</a>
-                </li>
-                <li class="nav-item" ng-hide="!ic.isLog()">
-                    <a ng-click="ic.logout()" ui-sref="ranking" class="nav-link">Sair</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarApp">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="denuncia" ng-hide="!ic.isLog()">Realizar Denuncia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="ranking">Visualizar Mapa de Denuncias</a>
+            </li>
+            <li class="nav-item" ng-hide="ic.isLog()">
+                <a ui-sref="login" class="nav-link">Logar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="registro" ng-hide="ic.isLog()">Registrar-se</a>
+            </li>
+            <li class="nav-item" ng-hide="!ic.isLog()">
+                <a ng-click="ic.logout()" ui-sref="ranking" class="nav-link">Sair</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <ui-view></ui-view>
+<ui-view></ui-view>
 
 </body>
 </html>

@@ -5,16 +5,16 @@
 </style>
 <div class="card login-form col-md-4 offset-4">
     <div class="card-block">
-        <form action="">
+        <form name="loginForm">
             <div class="form-group">
                 <label for="emailUserLog">Email</label>
-                <input ng-model="lg.user.email" type="email" class="form-control" id="emailUserLog" placeholder="Digite seu email">
+                <input ng-required="true" ng-model="lg.user.email" type="email" class="form-control" id="emailUserLog" placeholder="Digite seu email">
             </div>
             <div class="form-group">
                 <label for="senhaUserLog">Senha</label>
-                <input ng-model="lg.user.senha" type="password" class="form-control" id="senhaUserLog" placeholder="Digite sua senha">
+                <input ng-required="true" ng-model="lg.user.senha" type="password" class="form-control" id="senhaUserLog" placeholder="Digite sua senha">
             </div>
-            <button type="submit" class="btn btn-primary" ng-click="lg.loginUser()" >Logar</button>
+            <button type="submit" class="btn btn-primary" ng-click="lg.loginUser()" ng-disabled="loginForm.$invalid">Logar</button>
         </form>
     </div>
 </div>

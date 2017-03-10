@@ -6,35 +6,31 @@
 
 <div class="card register-form col-md-6 offset-3">
     <div class="card-block">
-        <form>
+        <form name="regForm">
             <div class="form-group">
                 <label for="nomeUser">Seu nome</label>
-                <input ng-model="rg.user.name" name="username" type="text" class="form-control" id="nomeUser" placeholder="Digite seu nome">
+                <input ng-required="true" ng-model="rg.user.name" name="username" type="text" class="form-control" id="nomeUser" placeholder="Digite seu nome">
             </div>
             <div class="form-group">
                 <label for="emailUser">Seu email</label>
-                <input ng-model="rg.user.email" name="useremail" type="email" class="form-control" id="emailUser" placeholder="Digite um email válido">
+                <input ng-required="true" ng-model="rg.user.email" name="useremail" type="email" class="form-control" id="emailUser" placeholder="Digite um email válido">
             </div>
             <div class="form-group row">
                 <label for="date-user" class="col-2 col-form-label">Data de nascimento</label>
                 <div class="col-10">
-                    <input ng-model="rg.user.date" class="form-control" type="date"  id="date-user">
+                    <input ng-required="true" ng-model="rg.user.date" class="form-control" type="date"  id="date-user">
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="cid-user" >Sua cidade</label>
-                <input ng-model="rg.user.cidade" class="form-control" type="text"  id="cid-user">
             </div>
             <div class="form-group ">
                 <label for="senhaUser">Sua senha</label>
-                <input ng-model="rg.user.senha"  name="password" type="password" class="form-control" id="senhaUser" placeholder="Digite sua senha">
+                <input ng-required="true" ng-model="rg.user.senha"  name="password" type="password" class="form-control" id="senhaUser" placeholder="Digite sua senha">
             </div>
             <div class="form-group">
                 <label for="senhaUserConfirm">Confirme sua senha</label>
-                <input name="passwordconfirm" type="password" class="form-control" id="senhaUserConfirm" placeholder="Confirme sua senha">
+                <input ng-required="true" name="passwordconfirm" type="password" class="form-control" id="senhaUserConfirm" placeholder="Confirme sua senha">
             </div>
             <div class="text-center">
-            <button type="submit" class="btn btn-primary" ng-click="rg.registerUser()">Cadastrar</button>
+            <button type="submit" class="btn btn-primary" ng-click="rg.registerUser()" ng-disabled="regForm.$invalid">Cadastrar</button>
             </div>
         </form>
     </div>

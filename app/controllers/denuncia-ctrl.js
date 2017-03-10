@@ -10,6 +10,14 @@
 
         dn.denuncia = {};
 
+        dn.isLog = function () {
+            if(sessionStorage.length == 0){
+                return false;
+            }else {
+                return true;
+            }
+        };
+
         dn.realizarDenuncia = function () {
             HTTPRequestService.postDenuncia(dn.denuncia).then(function (result) {
                 $state.go('ranking');

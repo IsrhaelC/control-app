@@ -2,51 +2,35 @@
 
     .map {
         margin-top: 40px;
-        width: 700px;
         height: 500px;
         background-color: #00b3ee;
     }
     .card {
-        width: 250px;
-        height: 150px;
         margin-top: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
     }
 </style>
 <div class="row">
-    <div class="card text-center">
-        <div class="card-block">
-            <h4 class="card-title">Fortaleza</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Ceará</h6>
-            <button ng-click="rk.loadMap(city=1)" type="submit" class="btn btn-primary">Visualizar Mapa</button>
-        </div>
-    </div>
-    <div class="card text-center">
-        <div class="card-block">
-            <h4 class="card-title">Quixadá</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Ceará</h6>
-            <input type="text" hidden ng-model="rk.city" value="qx">
-            <button ng-click="rk.loadMap(city=2)" type="submit" class="btn btn-primary">Visualizar Mapa</button>
-        </div>
-    </div>
-    <div class="card text-center">
-        <div class="card-block">
-            <h4 class="card-title">São Paulo</h4>
-            <h6 class="card-subtitle mb-2 text-muted">São Paulo</h6>
-            <input type="text" hidden ng-model="rk.city" value="sp">
-            <button ng-click="rk.loadMap(city=3)" type="submit" class="btn btn-primary">Visualizar Mapa</button>
-        </div>
-    </div>
-    <div class="card text-center">
-        <div class="card-block">
-            <h4 class="card-title">Rio de Janeiro</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Rio de Janeiro</h6>
-            <input type="text" hidden ng-model="rk.city" value="rj">
-            <button ng-click="rk.loadMap(city=4)" type="submit" class="btn btn-primary">Visualizar Mapa</button>
+    <div class="text-center">
+        <div class="card col-md-10 offset-1">
+            <div class="card-block">
+                <h4 class="card-title">Fortaleza</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Ceará</h6>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend dictum
+                    neque nec sodales. Aliquam consequat dignissim sapien sit amet pharetra. Praesent vestibulum vulputate
+                    libero, quis pharetra nisi ultrices in. Mauris ipsum magna, rhoncus vulputate tincidunt sit amet,
+                    faucibus ut ipsum. Cras bibendum velit vitae eros feugiat blandit. Sed dapibus quam sed tellus porta
+                    viverra vitae vitae ligula. Cras sed vestibulum tortor, a posuere tellus. Interdum et malesuada fames
+                    ac ante ipsum primis in faucibus. Vivamus at faucibus justo.
+
+                    Ut finibus nisi odio, sit amet elementum mauris tempor in. Donec nec maximus ante. Nam et velit
+                    tincidunt, elementum libero quis, vehicula eros. Aliquam id purus nunc. Vivamus vulputate nunc orci,
+                    gravida efficitur purus tempus ut. Ut maximus felis posuere leo porttitor lobortis. Sed in massa nulla.</p>
+                <button ng-click="rk.loadMap(city=1)" type="submit" class="btn btn-primary">Visualizar Mapa</button>
+            </div>
         </div>
     </div>
 
-    <div class="col-md-8 offset-2 map" id="map">
+    <div class="col-md-10 offset-1 map" id="map">
     </div>
+
 </div>

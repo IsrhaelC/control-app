@@ -38,13 +38,13 @@
                     <a class="nav-link" ui-sref="denuncia">Realizar Denuncia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="ranking">Visualizar Cidades</a>
+                    <a class="nav-link" ui-sref="ranking">Visualizar mapa de denuncias</a>
                 </li>
                 <li class="nav-item" ng-hide="ic.isLog()">
                     <a ui-sref="login" class="nav-link">Logar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" ui-sref="registro">Registrar-se</a>
+                    <a class="nav-link" ui-sref="registro" ng-hide="ic.isLog()">Registrar-se</a>
                 </li>
                 <li class="nav-item" ng-hide="!ic.isLog()">
                     <a ng-click="ic.logout()" ui-sref="ranking" class="nav-link">Sair</a>

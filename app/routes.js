@@ -1,7 +1,7 @@
 (function () {
 
     var myApp = angular.module('controlApp');
-    myApp.config(function ($stateProvider) {
+    myApp.config(function ($stateProvider, $urlRouterProvider) {
 
         var home = {
             name: 'home',
@@ -36,6 +36,11 @@
             templateUrl: 'templates/registro.html',
             controller: 'RegistroController as rg'
         };
+
+        $urlRouterProvider.otherwise(function($injector) {
+            var $state = $injector.get('$state');
+            $state.go('home');
+        });
 
         $stateProvider.state(home);
         $stateProvider.state(denuncia);

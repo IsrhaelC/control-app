@@ -18,6 +18,8 @@
             }
         };
 
+        dn.user = JSON.parse(sessionStorage.user);
+
         dn.realizarDenuncia = function () {
             HTTPRequestService.postDenuncia(dn.denuncia).then(function (result) {
                 $state.go('ranking');

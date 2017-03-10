@@ -19,6 +19,17 @@
             ene: 'assets/images/marcadores/energy.png'
         };
 
+        rk.descCat = {
+            seg: 'Segurança',
+            sau: 'Saúde',
+            edu: 'Educação',
+            ace: 'Acessibilidade',
+            wat: 'Desperdício de Água',
+            ene: 'Desperdício de Energia'
+        };
+
+        rk.titleCat = [rk.descCat.seg, rk.descCat.sau, rk.descCat.edu, rk.descCat.ace, rk.descCat.wat, rk.descCat.ene];
+
         rk.categorias = [rk.icones.seg, rk.icones.sau, rk.icones.edu, rk.icones.ace, rk.icones.wat, rk.icones.ene];
 
         rk.loadDenuncias = function () {
@@ -59,8 +70,21 @@
                     var marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location,
-                        title: denuncia.cat,
+                        title: rk.titleCat[denuncia.cat],
                         icon: rk.categorias[denuncia.cat]
+                    });
+
+                    var content = '<div class="card">' +
+                        '<div class="card-block">' +
+                        '<h4 class="card-title">' + rk.titleCat[denuncia.cat] + '</h4>' +
+                        '<h6 class="card-subtitle mb-2 text-muted">' + address + '</h6>' +
+                        '<p class="card-text">' + denuncia.desc + '</p>' +
+                        '</div></div>';
+                    var infowindow = new google.maps.InfoWindow({
+                        content: content
+                    });
+                    marker.addListener('click', function() {
+                        infowindow.open(map, marker);
                     });
                 } else {
                     alert("Geocode was not successful for the following reason: " + status);

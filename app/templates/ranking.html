@@ -3,12 +3,24 @@
     .map {
         margin-top: 40px;
         height: 500px;
+        margin-bottom: 100px;
         background-color: #00b3ee;
     }
     .card {
         margin-top: 10px;
     }
+
+    .legendas {
+        float: left;
+        margin-top: 40px;
+        height: 500px;
+    }
+
+    .leg {
+        font-size: 12pt;
+    }
 </style>
+<div class="container">
 <div class="row">
     <div class="text-center">
         <div class="card col-md-10 offset-1">
@@ -29,8 +41,20 @@
             </div>
         </div>
     </div>
-
-    <div class="col-md-10 offset-1 map" id="map">
+</div>
+<div class="row">
+    <div class="col-md-9 map" id="map">
     </div>
-
+        <div class="card legendas col-md-2 offset-1 text-center">
+            <div class="card-block">
+                <h4 class="card-title text-center">Legendas</h4>
+                    <span class="img-lgd"><img src="assets/images/marcadores/hospital.png" height="20" width="20" alt=""><p class="leg">Saúde</p></span>
+                    <span class="img-lgd"><img src="assets/images/marcadores/mortarboard.png" height="20" width="20" alt=""><p class="leg">Educação</p></span>
+                    <span class="img-lgd"><img src="assets/images/marcadores/siren.png" height="20" width="20" alt=""><p class="leg">Segurança</p></span>
+                    <span class="img-lgd"><img src="assets/images/marcadores/access.png" height="20" width="20" alt=""><p class="leg">Acessibilidade</p></span>
+                    <span class="img-lgd"><img src="assets/images/marcadores/wate.png" height="20" width="20" alt=""><p class="leg">Desperdício de Água</p></span>
+                    <span class="img-lgd"><img src="assets/images/marcadores/energy.png" height="20" width="20" alt=""><p class="leg">Desperdício de Energia</p></span>
+            </div>
+        </div>
+    </div>
 </div>

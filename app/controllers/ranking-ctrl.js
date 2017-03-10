@@ -5,10 +5,32 @@
 
     var myApp = angular.module('controlApp');
 
-    var RankingController = function ($scope, $state) {
+    var RankingController = function ($scope, $state, HTTPRequestService) {
         var rk = this;
 
-        var denuncias = [{_id: 1, }];
+        rk.denuncias = [];
+
+        rk.icones = {
+            seg: 'assets/images/marcadores/siren.png',
+            sau: 'assets/images/marcadores/hospital.png',
+            edu: 'assets/images/marcadores/mortarboard.png',
+            ace: 'assets/images/marcadores/access.png',
+            wat: 'assets/images/marcadores/wate.png',
+            ene: 'assets/images/marcadores/energy.png'
+        };
+
+        rk.categorias = [rk.icones.seg, rk.icones.sau, rk.icones.edu, rk.icones.ace, rk.icones.wat, rk.icones.ene];
+
+        rk.loadDenuncias = function () {
+            HTTPRequestService.getDenuncias().then(function (result) {
+                rk.denuncias = result.data;
+            }).catch(function (result) {
+                var msg = result.message || 'Erro';
+                alert(msg);
+            });
+        };
+
+        rk.loadDenuncias();
 
         rk.city = "";
 
@@ -35,11 +57,16 @@
             }
 
 
-            var map = new google.maps.Map(document.getElementById('map'), {
+            map = new google.maps.Map(document.getElementById('map'), {
                 zoom: zoomMap,
                 center: myLatLng
             });
 
+            for (var i = 0; i < rk.denuncias.length; i++){
+                codeAddress(rk.denuncias[i], map);
+            }
+
+            /*
             var icone = 'assets/images/marcadores/hospital.png';
             var marker = new google.maps.Marker({
                 position: myLatLng,
@@ -47,46 +74,24 @@
                 title: 'Hello World!',
                 icon: icone
             });
+            */
         }
-        
-        function converteEndereco(endereco, categoria) {
-            geocoder.geocode({'address': endereco}, function (resultado, status) {
-                if(status == google.maps.GeocoderStatus.OK){
-                    var marcador = {
-                        latitude: resultado[0].geometry.location.k,
-                        longitude: resultado[0].geometry.location.D,
-                        titulo: 'Novo Marcador',
-                        imagem: avaliacao
-                    }
-                    
+
+        function codeAddress(denuncia, map) {
+            var address = denuncia.end;
+            geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location,
+                        title: denuncia.cat,
+                        icon: rk.categorias[denuncia.cat]
+                    });
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
                 }
-            })
-        };
-
-        var marcadores = [];
-
-        var criaMarcador = function (marcador, mapa) {
-            var posicao = new google.maps.LatLng(marcador.latitude, marcador.longitude);
-            var opcoes = {
-                position: posicao,
-                title: marcador.titulo,
-                animation: google.maps.Animation.DROP,
-                icon: 'assets/images/marcadores/' + marcador.imagem,
-                map: mapa
-            }
-            var novoMarcador = new google.maps.Marker(opcoes);
-            marcadores.push(novoMarcador);
-            map.setCenter(novoMarcador.position);
-        };
-
-        function adiciona() {
-            var marcador = {
-                latidute: '',
-                longitude: '',
-                titulo: 'Novo MArcador',
-                imagem: ''
-            }
-            criaMarcador(marcador, map);
+            });
         }
 
         rk.loadMap = function (city) {
@@ -96,7 +101,7 @@
 
     };
 
-    RankingController.$inject = ['$scope', '$state'];
+    RankingController.$inject = ['$scope', '$state', 'HTTPRequestService'];
 
     myApp.controller('RankingController', RankingController);
 
